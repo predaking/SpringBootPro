@@ -17,6 +17,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (!userService.isLogin(request.getSession()).isSuccess()) {
+            System.out.println("用户尚未登录");
             return false;
         }
 

@@ -3,6 +3,8 @@ package com.example.demo.util;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 public class Result<T> {
@@ -31,6 +33,13 @@ public class Result<T> {
 
     public static <T> Result<T> success(T data) {
         Result<T> result = new Result<>(data);
+        result.setCode(0);
+        result.setMsg("ok");
+        return result;
+    }
+
+    public static <T> Result<List<T>> success(List<T> data) {
+        Result<List<T>> result = new Result<>(data);
         result.setCode(0);
         result.setMsg("ok");
         return result;

@@ -3,10 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import com.example.demo.util.Result;
-import com.google.gson.Gson;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,7 +28,6 @@ public class UserController {
 
     @GetMapping("/isLogin")
     public  Result<User> isLoginController(HttpServletRequest request) {
-        System.out.println("get-session: " + request.getSession().getAttribute(SESSION_NAME));
         return userService.isLogin(request.getSession());
     }
 }
